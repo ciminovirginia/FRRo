@@ -152,10 +152,15 @@ ESCRIBIR "Positivos: ", positivos
 ESCRIBIR "Negativos: ", negativos
  ejercicio 9 ventas por vendedor
  // Vendedores A a E
+// Vendedores de 'A' a 'E' usando MIENTRAS
 
-PARA vendedor DESDE 'A' HASTA 'E' HACER
+vendedor <- 'A'
+
+MIENTRAS vendedor <= 'E' HACER
+
     sumaVentas <- 0
 
+    ESCRIBIR "Ingrese ventas del vendedor ", vendedor
     LEER venta
 
     MIENTRAS venta <> 0 HACER
@@ -167,7 +172,11 @@ PARA vendedor DESDE 'A' HASTA 'E' HACER
 
     ESCRIBIR "Vendedor: ", vendedor
     ESCRIBIR "Comision: ", comision
-FIN PARA
+
+    // Pasar al siguiente vendedor
+    vendedor <- vendedor + 1
+
+FIN MIENTRAS
 ejercicio 10
 sistema banco
 dni <- 35654123

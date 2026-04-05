@@ -1,3 +1,24 @@
+
+ejercicio 3
+suma de 10 numeros positivos// Valida que sean positivos y acumula suma
+
+contador <- 0
+suma <- 0
+
+MIENTRAS contador < 10 HACER
+    ESCRIBIR "Ingrese numero positivo: "
+    LEER num
+
+    MIENTRAS num <= 0 HACER
+        ESCRIBIR "Error. Reingrese numero positivo: "
+        LEER num
+    FIN MIENTRAS
+
+    suma <- suma + num
+    contador <- contador + 1
+FIN MIENTRAS
+
+ESCRIBIR "Suma total: ", suma
 mayor y  menor de 5 numeros
 // Valida que no sean negativos
 

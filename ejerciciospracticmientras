@@ -189,40 +189,43 @@ ESCRIBIR "Negativos: ", negativos
 ejercicio 10
 sistema banco
 dni <- 35654123
-pass <- 1234
-saldo <- 150000
-cbu <- 986323456
-intentos <- 1
+		pass <- 1234
+		saldo <- 150000
+		cbu <- 986323456
+		intentos <- 1
+		escribir "ingresar dni"
+		LEER dniIngresado
+		
+		SI dniIngresado = dni ENTONCES
+			
+			MIENTRAS intentos <= 3 HACER
+				escribir "clave"
+				LEER passIngresado
+				
+				SI passIngresado = pass ENTONCES
+					opc <- 0
+					MIENTRAS opc <> 3 HACER
+						ESCRIBIR "1- Saldo"
+						ESCRIBIR "2- CBU"
+						ESCRIBIR "3- Salir"
+						LEER opc
+						
+						SEGUN opc HACER
+							1: 
+								ESCRIBIR saldo
+							2: 
+								ESCRIBIR cbu
+						FIN SEGUN
+					FIN MIENTRAS
+					
+					intentos <- 4
+				SINO
+					intentos <- intentos + 1
+				FIN SI
+			FIN MIENTRAS
+			
+		FIN SI
 
-LEER dniIngresado
-
-SI dniIngresado = dni ENTONCES
-
-    MIENTRAS intentos <= 3 HACER
-        LEER passIngresado
-
-        SI passIngresado = pass ENTONCES
-            opcion <- 0
-
-            MIENTRAS opcion <> 3 HACER
-                ESCRIBIR "1- Saldo"
-                ESCRIBIR "2- CBU"
-                ESCRIBIR "3- Salir"
-                LEER opcion
-
-                SEGUN opcion HACER
-                    1: ESCRIBIR saldo
-                    2: ESCRIBIR cbu
-                FIN SEGUN
-            FIN MIENTRAS
-
-            intentos <- 4
-        SINO
-            intentos <- intentos + 1
-        FIN SI
-    FIN MIENTRAS
-
-FIN SI
 ejercicio 11 menu con operaciones
 LEER num1
 LEER num2

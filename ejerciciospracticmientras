@@ -52,17 +52,22 @@ ESCRIBIR "Mayor: ", mayor
 ESCRIBIR "Menor: ", menor
 
 Promedio de alumnos
-// Promedio por alumno y general
+// Promedio por alumno y general usando MIENTRAS
 
 LEER cantAlumnos
 LEER cantParciales
 
 sumaGeneral <- 0
 
-PARA i <- 1 HASTA cantAlumnos HACER
-    sumaAlumno <- 0
+i <- 1
 
-    PARA j <- 1 HASTA cantParciales HACER
+MIENTRAS i <= cantAlumnos HACER
+
+    sumaAlumno <- 0
+    j <- 1
+
+    MIENTRAS j <= cantParciales HACER
+
         LEER nota
 
         MIENTRAS nota <= 0 O nota > 10 HACER
@@ -71,17 +76,21 @@ PARA i <- 1 HASTA cantAlumnos HACER
         FIN MIENTRAS
 
         sumaAlumno <- sumaAlumno + nota
-    FIN PARA
+        j <- j + 1
+
+    FIN MIENTRAS
 
     promedioAlumno <- sumaAlumno / cantParciales
     ESCRIBIR "Promedio alumno: ", promedioAlumno
 
     sumaGeneral <- sumaGeneral + promedioAlumno
-FIN PARA
+
+    i <- i + 1
+
+FIN MIENTRAS
 
 promedioGeneral <- sumaGeneral / cantAlumnos
 ESCRIBIR "Promedio general: ", promedioGeneral
-
 ejercicio 6 validacion de dni con intentos
 dni <- 38632584
 nota <- 7

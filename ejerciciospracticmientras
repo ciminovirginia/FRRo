@@ -1,0 +1,211 @@
+mayor y  menor de 5 numeros
+// Valida que no sean negativos
+
+contador <- 0
+
+MIENTRAS contador < 5 HACER
+    LEER num
+
+    MIENTRAS num < 0 HACER
+        ESCRIBIR "Error. Ingrese numero no negativo"
+        LEER num
+    FIN MIENTRAS
+
+    SI contador = 0 ENTONCES
+        mayor <- num
+        menor <- num
+    SINO
+        SI num > mayor ENTONCES
+            mayor <- num
+        FIN SI
+
+        SI num < menor ENTONCES
+            menor <- num
+        FIN SI
+    FIN SI
+
+    contador <- contador + 1
+FIN MIENTRAS
+
+ESCRIBIR "Mayor: ", mayor
+ESCRIBIR "Menor: ", menor
+
+Promedio de alumnos
+// Promedio por alumno y general
+
+LEER cantAlumnos
+LEER cantParciales
+
+sumaGeneral <- 0
+
+PARA i <- 1 HASTA cantAlumnos HACER
+    sumaAlumno <- 0
+
+    PARA j <- 1 HASTA cantParciales HACER
+        LEER nota
+
+        MIENTRAS nota <= 0 O nota > 10 HACER
+            ESCRIBIR "Nota invalida"
+            LEER nota
+        FIN MIENTRAS
+
+        sumaAlumno <- sumaAlumno + nota
+    FIN PARA
+
+    promedioAlumno <- sumaAlumno / cantParciales
+    ESCRIBIR "Promedio alumno: ", promedioAlumno
+
+    sumaGeneral <- sumaGeneral + promedioAlumno
+FIN PARA
+
+promedioGeneral <- sumaGeneral / cantAlumnos
+ESCRIBIR "Promedio general: ", promedioGeneral
+
+ejercicio 6 validacion de dni con intentos
+dni <- 38632584
+nota <- 7
+intentos <- 1
+
+MIENTRAS intentos <= 3 HACER
+    LEER dniIngresado
+
+    SI dniIngresado = dni ENTONCES
+        ESCRIBIR "Nota: ", nota
+        intentos <- 4
+    SINO
+        ESCRIBIR "DNI incorrecto"
+        intentos <- intentos + 1
+    FIN SI
+FIN MIENTRAS
+ ejercicio 7 notas hasta que el usuario decida
+ suma <- 0
+contador <- 0
+
+LEER opcion
+
+MIENTRAS opcion = "SI" HACER
+    LEER nota
+    suma <- suma + nota
+    contador <- contador + 1
+
+    LEER opcion
+FIN MIENTRAS
+
+SI contador > 0 ENTONCES
+    promedio <- suma / contador
+    ESCRIBIR "Suma: ", suma
+    ESCRIBIR "Promedio: ", promedio
+FIN SI
+
+ejercicio 8 contar positivos y negativoscontador <- 0
+positivos <- 0
+negativos <- 0
+
+LEER num
+
+MIENTRAS num <> 0 HACER
+    contador <- contador + 1
+
+    SI num > 0 ENTONCES
+        positivos <- positivos + 1
+    SINO
+        negativos <- negativos + 1
+    FIN SI
+
+    LEER num
+FIN MIENTRAS
+
+ESCRIBIR "Total: ", contador
+ESCRIBIR "Positivos: ", positivos
+ESCRIBIR "Negativos: ", negativos
+ ejercicio 9 ventas por vendedor
+ // Vendedores A a E
+
+PARA vendedor DESDE 'A' HASTA 'E' HACER
+    sumaVentas <- 0
+
+    LEER venta
+
+    MIENTRAS venta <> 0 HACER
+        sumaVentas <- sumaVentas + venta
+        LEER venta
+    FIN MIENTRAS
+
+    comision <- sumaVentas * 0.025
+
+    ESCRIBIR "Vendedor: ", vendedor
+    ESCRIBIR "Comision: ", comision
+FIN PARA
+ejercicio 10
+sistema banco
+dni <- 35654123
+pass <- 1234
+saldo <- 150000
+cbu <- 986323456
+intentos <- 1
+
+LEER dniIngresado
+
+SI dniIngresado = dni ENTONCES
+
+    MIENTRAS intentos <= 3 HACER
+        LEER passIngresado
+
+        SI passIngresado = pass ENTONCES
+            opcion <- 0
+
+            MIENTRAS opcion <> 3 HACER
+                ESCRIBIR "1- Saldo"
+                ESCRIBIR "2- CBU"
+                ESCRIBIR "3- Salir"
+                LEER opcion
+
+                SEGUN opcion HACER
+                    1: ESCRIBIR saldo
+                    2: ESCRIBIR cbu
+                FIN SEGUN
+            FIN MIENTRAS
+
+            intentos <- 4
+        SINO
+            intentos <- intentos + 1
+        FIN SI
+    FIN MIENTRAS
+
+FIN SI
+ejercicio 11 menu con operaciones
+LEER num1
+LEER num2
+
+contadorOperaciones <- 0
+opcion <- 0
+
+MIENTRAS opcion <> 6 HACER
+    ESCRIBIR "1 Suma"
+    ESCRIBIR "2 Resta"
+    ESCRIBIR "3 Multiplicacion"
+    ESCRIBIR "4 Division"
+    ESCRIBIR "5 Cantidad operaciones"
+    ESCRIBIR "6 Salir"
+
+    LEER opcion
+
+    SEGUN opcion HACER
+        1:
+            ESCRIBIR num1 + num2
+            contadorOperaciones <- contadorOperaciones + 1
+        2:
+            ESCRIBIR num1 - num2
+            contadorOperaciones <- contadorOperaciones + 1
+        3:
+            ESCRIBIR num1 * num2
+            contadorOperaciones <- contadorOperaciones + 1
+        4:
+            SI num2 <> 0 ENTONCES
+                ESCRIBIR num1 / num2
+                contadorOperaciones <- contadorOperaciones + 1
+            FIN SI
+        5:
+            ESCRIBIR contadorOperaciones
+    FIN SEGUN
+FIN MIENTRAS

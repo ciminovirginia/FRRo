@@ -154,29 +154,38 @@ ESCRIBIR "Negativos: ", negativos
  // Vendedores A a E
 // Vendedores de 'A' a 'E' usando MIENTRAS
 
-vendedor <- 'A'
+	i <- 1
+	
+	MIENTRAS i <= 5 HACER
+		
+		sumaVentas <- 0
+		
+		// Convertir número a letra con SEGUN
+		SEGUN i HACER
+			1: vendedor <- "A"
+			2: vendedor <- "B"
+			3: vendedor <- "C"
+			4: vendedor <- "D"
+			5: vendedor <- "E"
+		FIN SEGUN
+		
+		ESCRIBIR "Ingrese ventas del vendedor ", vendedor
+		LEER venta
+		
+		MIENTRAS venta <> 0 HACER
+			sumaVentas <- sumaVentas + venta
+			LEER venta
+		FIN MIENTRAS
+		
+		comision <- sumaVentas * 0.025
+		
+		ESCRIBIR "Vendedor: ", vendedor
+		ESCRIBIR "Comision: ", comision
+		
+		i <- i + 1
+		
+	FIN MIENTRAS
 
-MIENTRAS vendedor <= 'E' HACER
-
-    sumaVentas <- 0
-
-    ESCRIBIR "Ingrese ventas del vendedor ", vendedor
-    LEER venta
-
-    MIENTRAS venta <> 0 HACER
-        sumaVentas <- sumaVentas + venta
-        LEER venta
-    FIN MIENTRAS
-
-    comision <- sumaVentas * 0.025
-
-    ESCRIBIR "Vendedor: ", vendedor
-    ESCRIBIR "Comision: ", comision
-
-    // Pasar al siguiente vendedor
-    vendedor <- vendedor + 1
-
-FIN MIENTRAS
 ejercicio 10
 sistema banco
 dni <- 35654123

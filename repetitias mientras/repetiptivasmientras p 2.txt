@@ -1,0 +1,166 @@
+// Mostrar pares e impares por separado
+
+i <- 1
+
+ESCRIBIR "Numeros pares:"
+MIENTRAS i <= 50 HACER
+    SI i MOD 2 = 0 ENTONCES
+        ESCRIBIR i
+    FIN SI
+    i <- i + 1
+FIN MIENTRAS
+
+i <- 1
+
+ESCRIBIR "Numeros impares:"
+MIENTRAS i <= 50 HACER
+    SI i MOD 2 <> 0 ENTONCES
+        ESCRIBIR i
+    FIN SI
+    i <- i + 1
+FIN MIENTRAS
+
+// Mostrar del 100 al 1, sumar pares e impares y detectar primos
+
+i <- 100
+sumaPares <- 0
+sumaImpares <- 0
+
+MIENTRAS i >= 1 HACER
+
+    ESCRIBIR i
+
+    SI i MOD 2 = 0 ENTONCES
+        sumaPares <- sumaPares + i
+    SINO
+        sumaImpares <- sumaImpares + i
+    FIN SI
+
+    // Verificar si es primo
+    divisor <- 1
+    contadorDiv <- 0
+
+    MIENTRAS divisor <= i HACER
+        SI i MOD divisor = 0 ENTONCES
+            contadorDiv <- contadorDiv + 1
+        FIN SI
+        divisor <- divisor + 1
+    FIN MIENTRAS
+
+    SI contadorDiv = 2 ENTONCES
+        ESCRIBIR i, " es primo"
+    FIN SI
+
+    i <- i - 1
+FIN MIENTRAS
+
+ESCRIBIR "Suma pares: ", sumaPares
+ESCRIBIR "Suma impares: ", sumaImpares
+
+// Validar y mostrar números intermedios
+
+REPETIR
+    LEER num1
+    LEER num2
+HASTA QUE num1 <> num2 Y num2 > num1
+
+i <- num1 + 1
+
+MIENTRAS i < num2 HACER
+    ESCRIBIR i
+    i <- i + 1
+FIN MIENTRAS
+
+// Retiros con límite de intentos
+
+saldo <- 100000
+intentos <- 1
+
+MIENTRAS intentos <= 3 Y saldo > 0 HACER
+
+    ESCRIBIR "Saldo disponible: ", saldo
+    LEER retiro
+
+    SI retiro <= saldo ENTONCES
+        saldo <- saldo - retiro
+        ESCRIBIR "Retiro exitoso"
+    SINO
+        ESCRIBIR "Monto inválido"
+        intentos <- intentos + 1
+    FIN SI
+
+FIN MIENTRAS
+
+ESCRIBIR "Saldo final: ", saldo
+
+// Validación de PIN
+
+intentos <- 1
+pinCorrecto <- 4321
+
+REPETIR
+    LEER pin
+    intentos <- intentos + 1
+HASTA QUE pin = pinCorrecto O intentos > 4
+
+SI pin = pinCorrecto ENTONCES
+
+    opcion <- 0
+
+    MIENTRAS opcion <> 4 HACER
+
+        ESCRIBIR "1- Cargar productos"
+        ESCRIBIR "2- Calcular pago"
+        ESCRIBIR "3- Mostrar total"
+        ESCRIBIR "4- Salir"
+        LEER opcion
+
+        SEGUN opcion HACER
+
+            1:
+                total <- 0
+                LEER precio
+
+                MIENTRAS precio <> 0 HACER
+                    total <- total + precio
+                    LEER precio
+                FIN MIENTRAS
+
+            2:
+                ESCRIBIR "Forma de pago (1 efectivo, 2 tarjeta):"
+                LEER forma
+
+                SI forma = 1 ENTONCES
+                    totalFinal <- total * 0.9
+                    ESCRIBIR "Total con descuento: ", totalFinal
+
+                SINO
+                    LEER cuotas
+
+                    SI cuotas <= 3 ENTONCES
+                        totalFinal <- total * 1.1
+                    SINO
+                        SI cuotas <= 6 ENTONCES
+                            totalFinal <- total * 1.2
+                        SINO
+                            totalFinal <- total * 1.3
+                        FIN SI
+                    FIN SI
+
+                    valorCuota <- totalFinal / cuotas
+
+                    ESCRIBIR "Total: ", totalFinal
+                    ESCRIBIR "Cuotas: ", valorCuota
+                FIN SI
+
+            3:
+                ESCRIBIR "Total actual: ", total
+
+        FIN SEGUN
+
+    FIN MIENTRAS
+
+SINO
+    ESCRIBIR "PIN incorrecto. Sistema bloqueado"
+FIN SI
+
